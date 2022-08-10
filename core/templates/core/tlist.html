@@ -1,0 +1,99 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <!--<img src="{% static 'img/main.css' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
+        <a class="navbar-brand" href="#page-top">iiitbONE</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#services">Upload</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Change Sem</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="background-radial-gradient page-section">
+    <style>
+        .background-radial-gradient {
+   
+          background: linear-gradient(to bottom, rgba(143, 0, 246, 0.8) 0%, rgba(208, 143, 255, 0.8) 100%), url("../assets/img/bg-masthead.jpg");
+           
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        a:hover{
+            text-decoration: none;
+            color: inherit;
+        }
+    
+        #radius-shape-1 {
+          height: 220px;
+          width: 220px;
+          top: -60px;
+          left: -130px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        #radius-shape-2 {
+          border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+          bottom: -60px;
+          right: -110px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        .bg-glass {
+          background-color: hsla(0, 0%, 100%, 0.9) !important;
+          backdrop-filter: saturate(200%) blur(25px);
+        }
+      </style>
+    
+    <div class="container px-4 py-0" id="custom-cards">
+        <h2 class="text-white text-shadow-1   display-6 lh-1 fw-bold">{{ course.cname }}<br><br></h2>
+    
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            {% for t in ts %}
+         
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('{{ t.img }}');">
+                
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <a href="/lisst/{{ course.cname }}/{{ t.tname }}">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ t.tname }}</h2></a>
+                <ul class="d-flex list-unstyled mt-auto">
+                  
+   
+                  
+                </ul>
+              </div>
+              </a>
+            </div>
+          </div>
+        
+           {% endfor %}
+          
+          
+          
+          
+    
+          
+          </div>
+        </div>
+      </div>
+    
+</section>			
+
+       
+<footer class="bg-light py-5">
+    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Zense</div></div>
+</footer>
+{% endblock content %}

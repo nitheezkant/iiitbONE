@@ -1,0 +1,216 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <!--<img src="{% static 'img/main.css' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
+        <a class="navbar-brand" href="#page-top">iiitbONE</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'upload' %}">Upload</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Change Sem
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 1">IMTech sem 1</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 2">IMTech sem 2</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 3">IMTech sem 3</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 4">IMTech sem 4</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 5">IMTech sem 5</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 6">IMTech sem 6</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 7">IMTech sem 7</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 8">IMTech sem 8</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 9">IMTech sem 9</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 10">IMTech sem 10</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="/semc/MTech sem 1">MTech sem 1</a></li>
+                      <li><a class="dropdown-item" href="/semc/MTech sem 2">MTech sem 2</a></li>
+                      <li><a class="dropdown-item" href="/semc/MTech sem 3">MTech sem 3</a></li>
+                      <li><a class="dropdown-item" href="/semc/MTech sem 4">MTech sem 4</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="/semc/MS sem 1">MS sem 1</a></li>
+                      <li><a class="dropdown-item" href="/semc/MS sem 2">MS sem 2</a></li>
+                      <li><a class="dropdown-item" href="/semc/MS sem 3">MS sem 3</a></li>
+                      <li><a class="dropdown-item" href="/semc/MS sem 4">MS sem 4</a></li>
+                    </ul>
+                  </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="background-radial-gradient page-section">
+    <style>
+        .background-radial-gradient {
+   
+          background: linear-gradient(to bottom, rgba(143, 0, 246, 0.8) 0%, rgba(208, 143, 255, 0.8) 100%), url("../assets/img/bg-masthead.jpg");
+           
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        a:hover{
+            text-decoration: none;
+            color: inherit;
+        }
+    
+        #radius-shape-1 {
+          height: 220px;
+          width: 220px;
+          top: -60px;
+          left: -130px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        #radius-shape-2 {
+          border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+          bottom: -60px;
+          right: -110px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        .bg-glass {
+          background-color: hsla(0, 0%, 100%, 0.9) !important;
+          backdrop-filter: saturate(200%) blur(25px);
+        }
+      </style>
+    
+    <div class="container px-4 py-0" id="custom-cards">
+        <h2 class="text-white text-shadow-1   display-6 lh-1 fw-bold">Welcome {{ User.profile.name }}!<br><br>Showing courses of {{ User.profile.csem }}</h2>
+    
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            {% for c in cs %}
+         
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('{{ c.img }}');">
+                
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <a href="/tlist/{{ c.cname }}/">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ c.cname }}</h2></a>
+                <ul class="d-flex list-unstyled mt-auto">
+                  
+   
+                  
+                </ul>
+              </div>
+              </a>
+            </div>
+          </div>
+        
+           {% endfor %}
+          
+          
+          
+          
+    
+          
+          </div>
+        </div>
+      </div>
+    
+</section>			
+		
+  <!-- Services-->
+<!--
+  <section  class="background-radial-gradient page-section" id="services">
+    <style>
+        .background-radial-gradient {
+   
+          background: linear-gradient(to bottom, rgba(143, 0, 246, 0.8) 0%, rgba(208, 143, 255, 0.8) 100%), url("../assets/img/bg-masthead.jpg");
+           
+        }
+    
+        #radius-shape-1 {
+          height: 220px;
+          width: 220px;
+          top: -60px;
+          left: -130px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        #radius-shape-2 {
+          border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+          bottom: -60px;
+          right: -110px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        .bg-glass {
+          background-color: hsla(0, 0%, 100%, 0.9) !important;
+          backdrop-filter: saturate(200%) blur(25px);
+        }
+      </style>
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">At Your Se</h2>
+        <hr class="divider" />
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class=" fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Sturdy Themes</h3>
+                    <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="fs-1 text-primary"></i></div>
+                    <h3 class="h4 text-white mb-2">Up to Date</h3>
+                    <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class=" fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Ready to Publish</h3>
+                    <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Sturdy Themes</h3>
+                    <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Up to Date</h3>
+                    <p class="text-muted mb-0">All dependencies are kept current to keep things fffffffffffffffffffresh.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Ready to Publish</h3>
+                    <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">Made with Love</h3>
+                    <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+-->
+<footer class="bg-light py-5">
+    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Zense</div></div>
+</footer>
+{% endblock content %}

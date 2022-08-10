@@ -1,0 +1,134 @@
+
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <!--<img src="{% static 'img/main.css' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
+        <a class="navbar-brand" href="#page-top">iiitbONE</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#about">Sign Up</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Log In</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="page-section bg-darkk" id="contact">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0 text-white font-weight-bold">Post a resource!</h2>
+                <hr class="divider" />
+                <p class=" mb-5 text-white font-weight-bold">Please give accurate information in all fields and upload zip file if there are multiple.</p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <form id="form" method="post" enctype="multipart/form-data" action=".">
+                    <!-- Name input-->
+                    {% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <select class="form-select mt-3" aria-label="Default select example" name="sem" id="sem">
+                            <option selected></option>
+                            <option value="IMTech sem 1">IMTech sem 1</option>
+                            <option value="IMTech sem 2">IMTech sem 2</option>
+                            <option value="IMTech sem 3">IMTech sem 3</option>
+                            <option value="IMTech sem 4">IMTech sem 4</option>
+                            <option value="IMTech sem 5">IMTech sem 5</option>
+                            <option value="IMTech sem 6">IMTech sem 6</option>
+                            <option value="IMTech sem 7">IMTech sem 7</option>
+                            <option value="IMTech sem 8">IMTech sem 8</option>
+                            <option value="IMTech sem 9">IMTech sem 9</option>
+                            <option value="IMTech sem 10">IMTech sem 10</option>
+
+                            <option value="MTech sem 1">MTech sem 1</option>
+                            <option value="MTech sem 2">MTech sem 2</option>
+                            <option value="MTech sem 3">MTech sem 3</option>
+                            <option value="MTech sem 4">MTech sem 4</option>
+
+                            <option value="MS sem 1">MS sem 1</option>
+                            <option value="MS sem 2">MS sem 2</option>
+                            <option value="MS sem 3">MS sem 3</option>
+                            <option value="MS sem 4">MS sem 4</option>
+                        </select>
+                        <label for="course">Dergree and Semester</label>
+<!--                    
+                        <input class="form-control" id="sem" name="sem" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label for="name">Semester</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>-->
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+                        
+                        <input class="form-control" required type="text"  name="course" list="topic-list" />
+                        <datalist id="topic-list">
+                        <select id="room_topic">
+                            
+                            {% for topic in topics %}
+                            <option value="{{topic.cname}}">{{topic.cname}}</option>
+                            {% endfor %}
+                        </select>
+                        </datalist>
+                        <label for="course">Course</label>
+<!--                        <input class="form-control" id="course" name="course"  placeholder="name@example.com" data-sb-validations="required" />
+                        <label >Course</label>
+-->                      
+                    </div>
+           
+                    <div class="form-floating mb-3">
+                        <input class="form-control" required type="text"  name="typee" list="topic-list2" />
+                        <datalist id="topic-list2">
+                        <select id="room_topic2">
+                            
+                            {% for topic2 in topics2 %}
+                            <option value="{{topic2.tname}}">{{topic2.tname}}</option>
+                            {% endfor %}
+                        </select>
+                        </datalist>
+                        <label for="course">Type of resource</label>
+
+                        <!--
+                        <input class="form-control" id="typee" name="typee" type="text" placeholder="Enter your name..."data-sb-validations="required" />
+                        <label >Type of resource</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>-->
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="title" name="title"type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label >Tittle</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="file" name="pdf" class="form-control" id="pdf" placeholder="Image" required>
+                       
+                        
+                    </div>
+                    <!-- Message input-->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="dis" name="dis" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                        <label for="message">Discription</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                    </div>
+                 
+                    <div class="d-grid"><button class="btn btn-primary btn-xl " id="submit" type="submit">Submit</button></div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!--
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Upload book</button>
+</form>-->
+<footer class="bg-light py-5">
+    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Zense</div></div>
+</footer>
+
+{% endblock content %}
