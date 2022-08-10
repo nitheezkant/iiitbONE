@@ -30,7 +30,7 @@ def loginn(request):
         user=authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('clist')
+            return redirect('home')
         else:
             messages.error(request, 'Invalid credentials')    
 
@@ -58,7 +58,7 @@ def signup(request):
         user=authenticate(username=user.username, password=raw_password)
         login(request,user)
         
-        return redirect('clist')
+        return redirect('home')
     return render(request,'core/signup.html',{'form':form})
 
 @login_required(login_url='login')
@@ -146,10 +146,16 @@ def semc(request,pk):
     p=request.user.profile
     p.csem=pk
     p.save()
-
-
-
     return redirect('clist')
+
+@login_required(login_url='login')
+def home(request):
+    q=request.user.profile.csem
+    context={
+        'User':request.user
+    }
+    return render(request,'core/home.html',context)
+
 @login_required(login_url='login')
 def logoutuser(request):
     logout(request)

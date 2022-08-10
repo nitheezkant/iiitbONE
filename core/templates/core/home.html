@@ -42,7 +42,7 @@
     </div>
 </nav>
 
-<section class="background-radial-gradient page-section">
+<section class="background-radial-gradient page-section" id="services">
     <style>
         .background-radial-gradient {
    
@@ -82,41 +82,62 @@
           backdrop-filter: saturate(200%) blur(25px);
         }
       </style>
+   <div class="container px-4 px-lg-5">
+    <br><br><br>
+    <h1 class="text-center mt-0 text-white font-weight-bold">Welcome {{User.profile.name}}!<br><br></h1>
+    <h2 class="text-center mt-0 text-white font-weight-bold">What brings you here today?<br></h2>
+    <hr class="divider" />
     
-    <div class="container px-4 py-0" id="custom-cards">
-        <h2 class="text-white text-shadow-1   display-6 lh-1 fw-bold">Welcome {{ User.profile.name }}!<br><br>Showing courses of {{ User.profile.csem }}</h2>
-    
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-            {% for c in cs %}
-         
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('{{ c.img }}');">
-                
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                <a href="/tlist/{{ c.cname }}/">
-                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ c.cname }}</h2></a>
-                <ul class="d-flex list-unstyled mt-auto">
-                  
-   
-                  
-                </ul>
-              </div>
-              </a>
-            </div>
-          </div>
+    <br><br><br>
+    <div class="row gx-4 gx-lg-5">
         
-           {% endfor %}
-          
-          
-          
-          
-    
-          
-          </div>
+        <div class="col-lg-3 col-md-6 text-center">
+            <a href="{% url 'clist' %}">
+            <div class="mt-5">
+                <div class="mb-2"><i class="fa-solid fa-compass fa-2xl"></i></div>
+                <h3 class="h4 mb-2 text-white">Explore course-wise</h3>
+                <p class="text-white mb-0">Explore the specific resource you need.</p>
+            </div>
+        </a>
         </div>
-      </div>
     
-</section>			
+
+        <div class="col-lg-3 col-md-6 text-center">
+            <a href="{% url 'clist' %}">
+            <div class="mt-5">
+                <div class="mb-2"><i class="fa-brands fa-searchengin fa-2xl"></i></div>
+                <h3 class="h4 mb-2 text-white">Quick Search</h3>
+                <p class="text-white mb-0">Do a quick search throught all resources.</p>
+            </div>
+        </a>
+        </div>
+
+        <div class="col-lg-3 col-md-6 text-center">
+            <a href="{% url 'upload' %}">
+            <div class="mt-5">
+                <div class="mb-2"><i class="fa-solid fa-cloud-arrow-up  fa-2xl"></i></div>
+                <h3 class="h4 mb-2 text-white">Upload</h3>
+                <p class="text-white mb-0">Help others by uploading resources.</p>
+            </div>
+        </a>
+        </div>
+
+        <div class="col-lg-3 col-md-6 text-center">
+            <a href="{% url 'clist' %}">
+            <div class="mt-5">
+                <div class="mb-2"><i class="fa-brands fa-gratipay fa-2xl"></i></div>
+                <h3 class="h4 mb-2 text-white">Favorites</h3>
+                <p class="text-white mb-0">View the resources that you had marked as favorite!</p>
+            </div>
+        </a>
+        </div>
+    
+    </div>
+    <br><br><br>
+    <br><br><br>
+    <br><br><br>
+</div>
+</section>
 
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Zense</div></div>
