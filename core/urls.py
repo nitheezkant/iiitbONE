@@ -11,6 +11,7 @@ urlpatterns=[
     path('lisst/<str:pk>/<str:pkk>', views.lisst, name="lisst"),
     path('info/<str:pk>/', views.info, name="info"),
     path('home', views.home, name="home"),
+    path('srh', views.srh, name="srh"),
     path('signup/',views.signup,name="signup"),
     path('login/',views.loginn,name="login"),
     path('semc/<str:pk>/',views.semc,name="semc"),

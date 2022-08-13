@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.decorators import login_required 
 from django.contrib import messages
+from django.db.models import Q
 
 # Create your views here.
 def update_user_data(user):
@@ -155,6 +156,27 @@ def home(request):
         'User':request.user
     }
     return render(request,'core/home.html',context)
+
+@login_required(login_url='login')
+def srh(request):
+    k=request.user.profile.csem
+    q=request.GET.get('q')  if request.GET.get('q') !=None else''
+    print(q)
+    rcs= rc.objects.filter(
+        (Q(course__cname__icontains=q) |
+        Q(title__icontains=q) |
+        Q(typee__tname__icontains=q) |
+        Q(dis__icontains=q)) &
+        Q(sem__icontains=k)
+        )
+    rcc= rcs.count()
+    arc=rc.objects.all()
+    if rcc!=arc.count():
+        chk=1
+    else:
+        chk=0
+    context={'rcc': rcc, 'rcs': rcs, 'User': request.user,'chk' :chk}
+    return render(request, 'core/srh.html',context)
 
 @login_required(login_url='login')
 def logoutuser(request):

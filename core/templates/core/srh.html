@@ -41,7 +41,6 @@
         </div>
     </div>
 </nav>
-
 <section class="background-radial-gradient page-section" id="services">
     <style>
         .background-radial-gradient {
@@ -81,64 +80,161 @@
           background-color: hsla(0, 0%, 100%, 0.9) !important;
           backdrop-filter: saturate(200%) blur(25px);
         }
+        
+
+        .search {
+            background-color: #fff;
+            padding: 4px;
+            border-radius: 5px
+        }
+
+        .search-1 {
+            position: relative;
+            width: 100%
+        }
+
+        .search-1 input {
+            height: 45px;
+            border: none;
+            width: 100%;
+            padding-left: 34px;
+            padding-right: 10px;
+            border-right: 2px solid #eee
+        }
+
+        .search-1 input:focus {
+            border-color: none;
+            box-shadow: none;
+            outline: none
+        }
+
+        .search-1 i {
+            position: absolute;
+            top: 12px;
+            left: 5px;
+            font-size: 24px;
+            color: #eee
+        }
+
+        ::placeholder {
+            color: #eee;
+            opacity: 1
+        }
+
+        .search-2 {
+            position: relative;
+            width: 100%
+        }
+
+        .search-2 input {
+            height: 45px;
+            border: none;
+            width: 100%;
+            padding-left: 18px;
+            padding-right: 100px
+        }
+
+        .search-2 input:focus {
+            border-color: none;
+            box-shadow: none;
+            outline: none
+        }
+
+        .search-2 i {
+            position: absolute;
+            top: 12px;
+            left: -10px;
+            font-size: 24px;
+            color: #eee
+        }
+
+        .search-2 button {
+            position: absolute;
+            right: 1px;
+            top: 0px;
+            border: none;
+            height: 45px;
+            background-color: red;
+            color: #fff;
+            width: 90px;
+            border-radius: 4px
+        }
+
+        @media (max-width:800px) {
+            .search-1 input {
+                border-right: none;
+                border-bottom: 1px solid #eee
+            }
+
+            .search-2 i {
+                left: 4px
+            }
+
+            .search-2 input {
+                padding-left: 34px
+            }
+
+            .search-2 button {
+                height: 37px;
+                top: 5px
+            }
+        }
       </style>
    <div class="container px-4 px-lg-5">
     <br><br><br>
-    <h1 class="text-center mt-0 text-white font-weight-bold">Welcome {{User.profile.name}}!<br><br></h1>
-    <h2 class="text-center mt-0 text-white font-weight-bold">What brings you here today?<br></h2>
+    <h1 class="text-center mt-0 text-white font-weight-bold">Search through {{ User.profile.csem }} resources<br><br></h1>
+    <form action="" method="GET">
+        {% csrf_token %}
+    <div class="container"> <div class="search"> <div class="row">  <div class="search-1"> <i class='bx bx-search-alt'></i> <input type="text" name="q" placeholder="Enter keywords like course name,type of resource,name of resource etc..."> </div> </div>  </div>
+</div></form>
+   
     <hr class="divider" />
-    
     <br><br><br>
-    <div class="row gx-4 gx-lg-5">
+    {% if chk %}
+    <h2 class="text-center mt-0 text-white font-weight-bold">{{rcc}} resources found!<br></h2>
+    
+
+
+
+    <div class="container px-4 py-0" id="custom-cards">
+        <h2 class="text-white text-shadow-1   display-6 lh-1 fw-bold">{{ ts.tname }}<br><br>{{ course.cname }}</h2>
+    
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            {% for rc in rcs %}
+         
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" );">
+                
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <a href="/info/{{ rc.id }}">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ rc.title }}</h2></a>
+                <ul class="d-flex list-unstyled mt-auto">
+                  
+   
+                  
+                </ul>
+              </div>
+              </a>
+            </div>
+          </div>
         
-        <div class="col-lg-3 col-md-6 text-center">
-            <a href="{% url 'clist' %}">
-            <div class="mt-5">
-                <div class="mb-2"><i class="fa-solid fa-compass fa-2xl"></i></div>
-                <h3 class="h4 mb-2 text-white">Explore course-wise</h3>
-                <p class="text-white mb-0">Explore the specific resource you need.</p>
-            </div>
-        </a>
-        </div>
+           {% endfor %}
+          
+          
+          
+          
     
-
-        <div class="col-lg-3 col-md-6 text-center">
-            <a href="{% url 'srh' %}">
-            <div class="mt-5">
-                <div class="mb-2"><i class="fa-brands fa-searchengin fa-2xl"></i></div>
-                <h3 class="h4 mb-2 text-white">Quick Search</h3>
-                <p class="text-white mb-0">Do a quick search throught all resources.</p>
-            </div>
-        </a>
+          
+          </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 text-center">
-            <a href="{% url 'upload' %}">
-            <div class="mt-5">
-                <div class="mb-2"><i class="fa-solid fa-cloud-arrow-up  fa-2xl"></i></div>
-                <h3 class="h4 mb-2 text-white">Upload</h3>
-                <p class="text-white mb-0">Help others by uploading resources.</p>
-            </div>
-        </a>
-        </div>
-
-        <div class="col-lg-3 col-md-6 text-center">
-            <a href="{% url 'clist' %}">
-            <div class="mt-5">
-                <div class="mb-2"><i class="fa-brands fa-gratipay fa-2xl"></i></div>
-                <h3 class="h4 mb-2 text-white">Favorites</h3>
-                <p class="text-white mb-0">View the resources that you had marked as favorite!</p>
-            </div>
-        </a>
-        </div>
-    
-    </div>
-    <br><br><br>
-    <br><br><br>
-    <br><br><br>
-</div>
-</section>
-
+      </div>
+      {% endif %}
+     
+      <br><br><br><br>
+      <br><br><br><br>
+      <br><br><br><br>
+      <br><br><br><br>
+   </section>
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - Zense</div></div>
 </footer>
