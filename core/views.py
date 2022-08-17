@@ -78,7 +78,9 @@ def upload(request):
         Rc.sem=form.cleaned_data['sem']
 
         cc=form.data['course']
-        tc,waste = Course.objects.get_or_create(cname=cc)
+        tc,waste = Course.objects.get_or_create(cname=cc)      
+        tc.sem=Rc.sem
+        tc.save()
         Rc.course=tc
 
         cc2=form.data['typee']
@@ -89,7 +91,7 @@ def upload(request):
         Rc.pdf=form.cleaned_data['pdf']
         Rc.dis=form.cleaned_data['dis']
         Rc.save()
-        return redirect('landing')
+        return redirect('home')
     else:
         form = rcf()
 
@@ -122,7 +124,7 @@ def tlist(request, pk):
 def lisst(request,pk,pkk):
     coursee = Course.objects.get(cname=pk)
     ts= Typee.objects.get(tname=pkk)
-    rcs=rc.objects.filter(typee=ts)
+    rcs=rc.objects.filter(typee=ts,course=coursee)
     context = {'course': coursee,'ts':ts,'rcs':rcs}
     return render(request, 'core/lisst.html', context)
 

@@ -5,12 +5,39 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
         <!--<img src="{% static 'img/main.css' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">-->
-        <a class="navbar-brand" href="#page-top">iiitbONE</a>
+        <a class="navbar-brand" href="{% url 'home' %}">iiitbONE</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Log out</a></li>
-                
+                <li class="nav-item"><a class="nav-link" href="{% url 'upload' %}">Upload</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Change Sem
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 1">IMTech sem 1</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 2">IMTech sem 2</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 3">IMTech sem 3</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 4">IMTech sem 4</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 5">IMTech sem 5</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 6">IMTech sem 6</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 7">IMTech sem 7</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 8">IMTech sem 8</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 9">IMTech sem 9</a></li>
+                      <li><a class="dropdown-item" href="/semc/IMTech sem 10">IMTech sem 10</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="/semc/MTech sem 1">MTech sem 1</a></li>
+                      <li><a class="dropdown-item" href="/semc/MTech sem 2">MTech sem 2</a></li>
+                      <li><a class="dropdown-item" href="/semc/MTech sem 3">MTech sem 3</a></li>
+                      <li><a class="dropdown-item" href="/semc/MTech sem 4">MTech sem 4</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="/semc/MS sem 1">MS sem 1</a></li>
+                      <li><a class="dropdown-item" href="/semc/MS sem 2">MS sem 2</a></li>
+                      <li><a class="dropdown-item" href="/semc/MS sem 3">MS sem 3</a></li>
+                      <li><a class="dropdown-item" href="/semc/MS sem 4">MS sem 4</a></li>
+                    </ul>
+                  </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
             </ul>
         </div>
     </div>
