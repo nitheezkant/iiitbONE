@@ -29,6 +29,7 @@
                 <p class="text-white-75 mb-4">Posted by {{ rc.poster.profile.name }}</p>
                 
                 <a class="btn btn-light btn-xl" href="{{ rc.pdf.url }}">Download</a>
+                <a class="btn btn-light btn-xl" href="/atf/{{ rc.id }}">Add to favorite</a>
             </div>
         </div>
     </div>
@@ -105,9 +106,9 @@
                         
                     </div>
                     
-                    
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                
             </div>
         </div>
     </div>

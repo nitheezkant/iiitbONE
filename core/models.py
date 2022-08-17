@@ -40,6 +40,8 @@ class Profile(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)   
     name=models.CharField(max_length=100, null=True)
     csem=models.TextField(null=True, blank=True)
+    fav=models.ManyToManyField(
+            rc, blank=True)
 
 class Message(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

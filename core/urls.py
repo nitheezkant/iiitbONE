@@ -15,5 +15,7 @@ urlpatterns=[
     path('signup/',views.signup,name="signup"),
     path('login/',views.loginn,name="login"),
     path('semc/<str:pk>/',views.semc,name="semc"),
+    path('atf/<str:pk>/',views.atf,name="atf"),
+    path('fav', views.fav, name="fav"),
     path('logout/', views.logoutuser, name='logout'),
 ]

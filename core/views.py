@@ -170,13 +170,27 @@ def srh(request):
         Q(sem__icontains=k)
         )
     rcc= rcs.count()
-    arc=rc.objects.all()
+    arc=rc.objects.filter(sem=k)
     if rcc!=arc.count():
         chk=1
     else:
         chk=0
     context={'rcc': rcc, 'rcs': rcs, 'User': request.user,'chk' :chk}
     return render(request, 'core/srh.html',context)
+
+@login_required(login_url='login')
+def atf(request,pk):
+    r= rc.objects.get(id=pk)
+    p= request.user.profile
+    p.fav.add(r)
+    return redirect(request.META.get('HTTP_REFERER'))
+
+@login_required(login_url='login')
+def fav(request):
+    p= request.user.profile
+    rcs=p.fav.all()
+    context = {'rcs':rcs,'name':p.name}
+    return render(request, 'core/fav.html', context)
 
 @login_required(login_url='login')
 def logoutuser(request):
