@@ -149,7 +149,7 @@ def semc(request,pk):
     p=request.user.profile
     p.csem=pk
     p.save()
-    return redirect('clist')
+    return redirect(request.META.get('HTTP_REFERER'))
 
 @login_required(login_url='login')
 def home(request):

@@ -11,6 +11,8 @@ Assignments, previous year quies, exam papers and everything that you will need 
 
 Watch this video for a quick demo:
 
+https://www.youtube.com/watch?v=yLyamBgmdCw
+
 **Highly recomended to watch this before going through the documentation.**
 # Tech Stack
 
