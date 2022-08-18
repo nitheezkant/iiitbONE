@@ -14,6 +14,8 @@ Watch this video for a quick demo:
 https://www.youtube.com/watch?v=yLyamBgmdCw
 
 **Highly recomended to watch this before going through the documentation.**
+
+Refer to the idea list at ```idea_list.md```
 # Tech Stack
 
 **Server:** Django 4.0.1, SQLite3
