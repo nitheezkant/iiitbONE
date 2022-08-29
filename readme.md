@@ -31,13 +31,15 @@ Refer to the idea list at ```idea_list.md```
 
 **2)Basic structure and URL paths**
 
-**3)Database**
+**3)URL paths**
 
-**4)Forms**
+**4)Database**
 
-**5)Views**
+**5)Forms**
 
-**6)Static and Templates**
+**6)Views**
+
+**7)Static and Templates**
 
 ## 1)Run Locally
 
